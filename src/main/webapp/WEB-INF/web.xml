@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<!-- XML 주석
+	MVC : Controller Setting : Spring 에서 클라이언트의 요청 (Get, post)
+		- Get 요청 : URL 을 사용해서 요청, Form 태그에서 method = get
+		- Post 요청 : Form 태그에서만 요청할 수 있다. (Form 태그에서 method = post)
+		
+		- Java Servelet 이 controller 역할을 함.
+		  Controller Setting : 클라이언트 요청을 처리하는 Controller 지정 방법 2가지
+		   
+		1. web.xml 설정
+		2. @controller 어노테이션을 사용해서 설정, @getMapping, @postMapping <== Spring Boot
+		
+		Spring 에서는 DispatcherServlet 이 클라이언트의 get 요청과 post 요청을 처리함.
+
+ -->
+ 
+ <!-- controller 매핑 설정 -->
+ 
+ <servlet>
+ 	<servlet-name>action</servlet-name>
+ 	<servlet-class>com.Spring.controller.DispatcherServlet</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>action</servlet-name>
+ 	<url-pattern>*.do</url-pattern>
+ </servlet-mapping>
+ <!--  Controller 매핑 설정 -->
+ 
+ <!-- CartController Mapping 설정 -->
+  <servlet>
+ 	<servlet-name>cart</servlet-name>
+ 	<servlet-class>com.Spring.controller.CartController</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>cart</servlet-name>
+ 	<url-pattern>*.ca</url-pattern>
+ </servlet-mapping>
+ 
+ <!-- Actioncontroller 매핑 -->
+  <servlet>
+ 	<servlet-name>action2</servlet-name>
+ 	<servlet-class>com.Spring.controller.Actioncontroller</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>action2</servlet-name>
+ 	<url-pattern>*.action</url-pattern>
+ </servlet-mapping>
+
+</web-app>
